@@ -22,7 +22,7 @@ angular.module('BasicHttpAuthExample', [
  
         .when('/', {
             controller: 'HomeController',
-            templateUrl: 'modules/home/views/home.html'
+            templateUrl: 'modules/home/views/index.htm'
         })
  
         .otherwise({ redirectTo: '/login' });
