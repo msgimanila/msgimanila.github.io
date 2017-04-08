@@ -1,0 +1,738 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Hello, AMPs</title>
+<link rel="canonical" href="http://localhost/AMP.html1.html">
+<script async custom-element="amp-fx-parallax" src="https://cdn.ampproject.org/v0/amp-fx-parallax-0.1.js"></script>
+<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+<script async custom-element="amp-app-banner" src="https://cdn.ampproject.org/v0/amp-app-banner-0.1.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+	<style amp-custom>
+amp-accordion section[expanded] .show-more {
+  display: none;
+}
+amp-accordion section:not([expanded]) .show-less {
+  display: none;
+}
+.nested-accordion h4 {
+  font-size: 14px;
+  background-color: #ddd;
+}
+amp-accordion#hidden-header section[expanded] h4 {
+  border: none;
+}
+</style>
+	<style amp-custom>       
+    .ampTabContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .tabButton[selected] {
+        outline: none;
+        background: #ccc;
+    }
+    
+    .tabButton {
+        list-style: none;
+        flex-grow: 1;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .tabContent {
+        display: none;
+        width: 100%;
+        order: 1; /* must be greater than the order of the tab buttons to flex to the next line */
+        border: 1px solid #ccc;
+    }
+    
+    .tabButton[selected]+.tabContent {
+        display: block;
+    }
+    /* For example below (not required) */
+    .itemCustom {
+        border: 1px solid #000;
+        height: 280px;
+        width: 380px;
+        margin: 10px;
+        text-align: center;
+        padding-top: 140px;
+    }
+    amp-selector {
+      padding: 1rem;
+      margin: 1rem;
+    }
+</style>
+   <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "LiveBlogPosting",
+    "url": "https://ampbyexample.com/samples_templates/live_blog/",
+    "articleBody": "This is the initial text in the blog post",
+    "datePublished": "2016-09-08T23:04:28.24337",
+    "about": {
+      "@type": "Event",
+      "description": "This is my great live blog sample",
+      "startDate": "2016-07-23T13:00:00-07:00",
+      "endDate": "2016-07-23T15:00:00-07:00",
+      "name": "An AMP Live Blog",
+      "url": "https://ampbyexample.com/samples_templates/live_blog/",
+      "location": {
+        "@type": "EventVenue",
+        "name": "The Venue Name",
+        "address" : {
+          "@type": "PostalAddress",
+          "streetAddress": "701 Mission St",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "postalCode": "94103",
+          "addressCountry": "US"
+        }
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Google",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ampbyexample.com/img/favicon.png",
+        "width": "512",
+        "height": "512"
+      }
+    },
+    "author": {
+      "@type": "Person",
+      "sameAs": "https://github.com/kul3r4",
+      "name": "Chiara Chiappini"
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://ampbyexample.com/img/abe_preview.png",
+      "height": "1532",
+      "width": "2046"
+    },
+    "coverageStartTime": "2016-07-23T11:30:00-07:00",
+    "coverageEndTime": "2016-07-23T16:00:00-07:00",
+    "headline": "An AMP Live Blog",
+    "description": "A Live Blog implementation with AMP",
+    "liveBlogUpdate": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Green landscape",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post1",
+            "datePublished": "2017-04-07T08:22:42.317372+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://ampbyexample.com/img/landscape_green_1280x853.jpg",
+              "width": "853",
+              "height": "1280"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Mountains",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post2",
+            "datePublished": "2017-04-07T08:22:42.317409+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://ampbyexample.com/img/landscape_mountains_1280x657.jpg",
+              "width": "853",
+              "height": "1280"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Road leading to a lake",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post3",
+            "datePublished": "2017-04-07T08:22:42.317413+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://ampbyexample.com/img/landscape_lake_1280x857.jpg",
+              "width": "853",
+              "height": "1280"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Forested hills",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post4",
+            "datePublished": "2017-04-07T08:22:42.317416+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg",
+              "width": "853",
+              "height": "1280"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Scattered houses",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post5",
+            "datePublished": "2017-04-07T08:22:42.317418+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://ampbyexample.com/img/landscape_village_1280x853.jpg",
+              "width": "853",
+              "height": "1280"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Canyon",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post6",
+            "datePublished": "2017-04-07T08:22:42.317419+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://ampbyexample.com/img/landscape_canyon_1280x1700.jpg",
+              "width": "853",
+              "height": "1280"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Desert",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post7",
+            "datePublished": "2017-04-07T08:22:42.317421+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://ampbyexample.com/img/landscape_desert_1280x853.jpg",
+              "width": "853",
+              "height": "1280"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Houses",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post8",
+            "datePublished": "2017-04-07T08:22:42.317422+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://ampbyexample.com/img/landscape_houses_1280x803.jpg",
+              "width": "853",
+              "height": "1280"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Blue sea",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post9",
+            "datePublished": "2017-04-07T08:22:42.317423+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://ampbyexample.com/img/landscape_sea_1280x848.jpg",
+              "width": "853",
+              "height": "1280"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Sailing ship",
+            "url": "https://ampbyexample.com/samples_templates/live_blog/#post10",
+            "datePublished": "2017-04-07T08:22:42.317424+00:00",
+            "author": {
+              "@type": "Person",
+              "sameAs": "https://github.com/kul3r4",
+              "name": "Chiara Chiappini"
+            },
+            "articleBody": {
+              "@type": "Text"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "AMP By Example",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ampbyexample.com/img/favicon.png",
+                "width": "512",
+                "height": "512"
+              }
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://ampbyexample.com/img/landscape_ship_1280x853.jpg",
+              "width": "853",
+              "height": "1280"
+            }
+          }
+        ]
+  }
+</script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+<style amp-custom>
+  /* any custom style goes here */
+  body {
+    background-color: white;
+	padding: 4%;
+  }
+  p, section {font-family: 'Roboto', sans-serif;}
+  section p, section div {padding: 2%;}
+  amp-img {
+    background-color: gray;
+    border: 1px solid black;
+  }
+</style>
+  </head>
+  <body>
+  
+    <h1>Welcome to the mobile web</h1>
+	 <amp-live-list 
+  layout="container"
+  data-poll-interval="15000"
+  data-max-items-per-page="5"
+  id="amp-live-list-insert-blog">
+
+  <button id="live-list-update-button"
+    update
+    on="tap:amp-live-list-insert-blog.update"
+    class="ampstart-btn caps">You have updates</button>
+  <div items>
+    
+    <div id="post1"
+      data-sort-time="20170408075843">
+      <div class="ampstart-card m1 blog">
+        <amp-img src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg"
+          layout="responsive"
+          width="1280"
+          height="853">
+        </amp-img>
+        <h4 class="title">Lorem ipsum dolor</h4>
+        <p class="date">07:58:43</p>
+        <p class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <p class="social-share">
+          <amp-social-share type="twitter"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+          <amp-social-share type="facebook"
+            width="45"
+            height="33"
+            data-attribution="254325784911610"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+          <amp-social-share type="gplus"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+          <amp-social-share type="email"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+          <amp-social-share type="pinterest"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+        </p>
+      </div>
+    </div>
+    
+  </div>
+
+   
+
+</amp-live-list>
+
+<amp-accordion>
+  <section expanded>
+    <h4>Section 1</h4>
+    <p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
+  </section>
+  <section>
+    <h4>Section 2</h4>
+    <div>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+      <code>&lt;div&gt;</code>.</div>
+  </section>
+  <section>
+    <h4>Section 3</h4>
+    <figure>
+      <amp-img src="https://images.pexels.com/photos/196421/pexels-photo-196421.jpeg"
+        width="1080"
+        height="610"
+        layout="responsive"
+        alt="an image"></amp-img>
+      <figcaption>Images work as well.</figcaption>
+    </figure>
+  </section>
+</amp-accordion>
+  <amp-live-list disabled
+  layout="container"
+  data-poll-interval="15000"
+  data-max-items-per-page="5"
+  id="amp-live-list-insert-blog">
+
+  <button id="live-list-update-button"
+    update
+    on="tap:amp-live-list-insert-blog.update"
+    class="ampstart-btn caps">You have updates</button>
+  <div items>
+    
+    <div id="post6"
+      data-sort-time="20170408083827">
+      <div class="ampstart-card m1 blog">
+        <amp-img src="https://images.pexels.com/photos/147504/pexels-photo-147504.jpeg"
+          layout="responsive"
+          width="1280"
+          height="853">
+        </amp-img>
+        <h4 class="title">Canyon</h4>
+        <p class="date">08:38:27</p>
+        <p class="text">A deep canyon.</p>
+        <p class="social-share">
+          <amp-social-share type="twitter"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post6"></amp-social-share>
+          <amp-social-share type="facebook"
+            width="45"
+            height="33"
+            data-attribution="254325784911610"
+            data-param-url="AMPDOC_URL#post6"></amp-social-share>
+          <amp-social-share type="gplus"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post6"></amp-social-share>
+          <amp-social-share type="email"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post6"></amp-social-share>
+          <amp-social-share type="pinterest"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post6"></amp-social-share>
+        </p>
+      </div>
+    </div>
+    
+    <div id="post7"
+      data-sort-time="20170408083842">
+      <div class="ampstart-card m1 blog">
+        <amp-img src="https://images.pexels.com/photos/338936/pexels-photo-338936.jpeg"
+          layout="responsive"
+          width="1280"
+          height="853">
+        </amp-img>
+        <h4 class="title">Desert</h4>
+        <p class="date">08:38:42</p>
+        <p class="text">A desert with mountains in the background.</p>
+        <p class="social-share">
+          <amp-social-share type="twitter"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post7"></amp-social-share>
+          <amp-social-share type="facebook"
+            width="45"
+            height="33"
+            data-attribution="254325784911610"
+            data-param-url="AMPDOC_URL#post7"></amp-social-share>
+          <amp-social-share type="gplus"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post7"></amp-social-share>
+          <amp-social-share type="email"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post7"></amp-social-share>
+          <amp-social-share type="pinterest"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post7"></amp-social-share>
+        </p>
+      </div>
+    </div>
+    
+    <div id="post8"
+      data-sort-time="20170408083857">
+      <div class="ampstart-card m1 blog">
+        <amp-img src="https://images.pexels.com/photos/147504/pexels-photo-147504.jpeg"
+          layout="responsive"
+          width="1280"
+          height="853">
+        </amp-img>
+        <h4 class="title">Houses</h4>
+        <p class="date">08:38:57</p>
+        <p class="text">Colorful houses on a street.</p>
+        <p class="social-share">
+          <amp-social-share type="twitter"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post8"></amp-social-share>
+          <amp-social-share type="facebook"
+            width="45"
+            height="33"
+            data-attribution="254325784911610"
+            data-param-url="AMPDOC_URL#post8"></amp-social-share>
+          <amp-social-share type="gplus"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post8"></amp-social-share>
+          <amp-social-share type="email"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post8"></amp-social-share>
+          <amp-social-share type="pinterest"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post8"></amp-social-share>
+        </p>
+      </div>
+    </div>
+    
+    <div id="post9"
+      data-sort-time="20170408083912">
+      <div class="ampstart-card m1 blog">
+        <amp-img src="https://images.pexels.com/photos/147504/pexels-photo-147504.jpeg"
+          layout="responsive"
+          width="1280"
+          height="853">
+        </amp-img>
+        <h4 class="title">Blue sea</h4>
+        <p class="date">08:39:12</p>
+        <p class="text">Blue sea surrounding a cave.</p>
+        <p class="social-share">
+          <amp-social-share type="twitter"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post9"></amp-social-share>
+          <amp-social-share type="facebook"
+            width="45"
+            height="33"
+            data-attribution="254325784911610"
+            data-param-url="AMPDOC_URL#post9"></amp-social-share>
+          <amp-social-share type="gplus"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post9"></amp-social-share>
+          <amp-social-share type="email"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post9"></amp-social-share>
+          <amp-social-share type="pinterest"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post9"></amp-social-share>
+        </p>
+      </div>
+    </div>
+    
+    <div id="post10"
+      data-sort-time="20170408083927">
+      <div class="ampstart-card m1 blog">
+        <amp-img src="https://images.pexels.com/photos/147504/pexels-photo-147504.jpeg"
+          layout="responsive"
+          width="1280"
+          height="853">
+        </amp-img>
+        <h4 class="title">Sailing ship</h4>
+        <p class="date">08:39:27</p>
+        <p class="text">A ship sailing the sea at sunset.</p>
+        <p class="social-share">
+          <amp-social-share type="twitter"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post10"></amp-social-share>
+          <amp-social-share type="facebook"
+            width="45"
+            height="33"
+            data-attribution="254325784911610"
+            data-param-url="AMPDOC_URL#post10"></amp-social-share>
+          <amp-social-share type="gplus"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post10"></amp-social-share>
+          <amp-social-share type="email"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post10"></amp-social-share>
+          <amp-social-share type="pinterest"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post10"></amp-social-share>
+        </p>
+      </div>
+    </div>
+    
+  </div>
+
+  <div pagination>
+    <nav aria-label="amp live list pagination">
+      <ul class="pagination">
+        
+        <li>
+          <a href="?from=post1">Prev</a>
+        </li>
+        
+        <li> <a href="?from=post2">Next</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+</amp-live-list>
+  </body>
+</html>
